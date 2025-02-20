@@ -41,7 +41,7 @@
     <script>
         // Lista delle canzoni
         let songs = [
-            "https://tagjunior91.github.io/nome-repository/song1.mp3",
+            "https://github.com/tagjunior91/Prova-1/blob/main/song1.mp3",
         ];
         let currentSongIndex = 0;
         let audio = new Audio(songs[currentSongIndex]);
