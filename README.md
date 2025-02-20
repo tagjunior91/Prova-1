@@ -41,7 +41,7 @@
     <script>
         // Lista delle canzoni
         let songs = [
-            "https://github.com/tagjunior91/Prova-1/blob/main/song1.mp3",
+            "https://github.com/tagjunior91/Prova-1/song1.mp3",
             "URL_DELLA_CANZONE_2",
             "URL_DELLA_CANZONE_3"
         ];
