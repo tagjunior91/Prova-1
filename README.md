@@ -6,6 +6,7 @@
     <button onclick="startMusic()">Avvia Musica</button>
 
     <video width="320" height="240" controls>
+    <video controls>
         <source src="https://github.com/tagjunior91/Prova-1/blob/main/SnapTik_App_7468275277735529750.mp4" type="video/mp4">
         Il tuo browser non supporta i video.
     </video>
