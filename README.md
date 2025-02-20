@@ -42,8 +42,6 @@
         // Lista delle canzoni
         let songs = [
             "https://tagjunior91.github.io/nome-repository/song1.mp3",
-            "URL_DELLA_CANZONE_2",
-            "URL_DELLA_CANZONE_3"
         ];
         let currentSongIndex = 0;
         let audio = new Audio(songs[currentSongIndex]);
