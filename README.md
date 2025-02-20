@@ -14,7 +14,7 @@
 
     <script>
         // Lista delle canzoni
-        let songs = ["https://tagjunior91.github.io/nome-repository/Song2.mp3"];
+        let songs = ["https://github.com/tagjunior91/Prova-1/blob/main/Song2.mp3"];
         ];
         let currentSongIndex = 0;
         let audio = new Audio(songs[currentSongIndex]);
