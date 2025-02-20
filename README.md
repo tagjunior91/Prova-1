@@ -33,7 +33,7 @@
     <p>Sei la persona più speciale della mia vita. Scorri in basso per vedere la sorpresa!</p>
 
     <video width="320" height="240" controls>
-        <source src="/https://github.com/tagjunior91/Prova-1/blob/main/SnapTik_App_7468275277735529750.mp4" type="video/mp4">
+        <source src= "https://github.com/tagjunior91/Prova-1/blob/main/SnapTik_App_7468275277735529750.mp4" type="video/mp4">
         Il tuo browser non supporta i video.
     </video>
     <p style="margin-top: 20px;">Scuoti il telefono per cambiare la canzone!</p>
@@ -41,7 +41,7 @@
     <script>
         // Lista delle canzoni
         let songs = [
-            "https://github.com/tagjunior91/Prova-1/blob/main/song1.mp3",
+            "/https://github.com/tagjunior91/Prova-1/blob/main/song1.mp3",
             "URL_DELLA_CANZONE_2",
             "URL_DELLA_CANZONE_3"
         ];
