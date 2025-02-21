@@ -8,22 +8,34 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f4d03f; /* Giallo ocra */
+            background-color: #fef9c3; /* Giallo paglierino */
             color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             overflow: hidden; /* Nasconde elementi fuori dallo schermo */
         }
         h1 {
             text-align: center;
-            padding: 20px;
+            padding: 10px;
             color: #d35400;
         }
+        p {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #6c5b7b;
+        }
         video {
-            display: block;
+            width: 320px;
+            height: 240px;
             margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         button {
-            display: block;
-            margin: 20px auto;
             padding: 10px 20px;
             font-size: 18px;
             background-color: #e74c3c;
@@ -31,6 +43,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin: 10px;
         }
         button:hover {
             background-color: #c0392b;
@@ -57,17 +70,17 @@
 </head>
 <body>
     <h1>Ciao Amore ❤️</h1>
-    <p style="text-align: center;">Tocca il pulsante per iniziare!</p>
-    <button onclick="startMusic()">Avvia Musica</button>
-    <video id="video" width="320" height="240" controls>
+    <p>Sei il mio tutto e riempi ogni giorno di gioia e amore. 💛</p>
+    <video id="video" controls>
         <source src="https://tuo-username.github.io/nome-repository/video.mp4" type="video/mp4">
         Il tuo browser non supporta i video.
     </video>
+    <button onclick="startMusic()">Avvia Musica</button>
 
     <script>
         let songs = [
             "https://tuo-username.github.io/nome-repository/song1.mp3",
-            "https://tuo-username.github.io/nome-repository/song2.mp3",
+            "https://tuo-username.github.io/nome-repository/song2.mp3", /* Quella con i cuoricini */
             "https://tuo-username.github.io/nome-repository/song3.mp3"
         ];
 
@@ -91,9 +104,6 @@
 
         // Funzione per far cadere i cuoricini
         function startHearts() {
-            const heartContainer = document.createElement("div");
-            document.body.appendChild(heartContainer);
-
             setInterval(() => {
                 const heart = document.createElement("div");
                 heart.classList.add("heart");
