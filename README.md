@@ -14,7 +14,7 @@
     <script>
         // Lista delle canzoni
         let songs = [
-            "URL_DELLA_CANZONE_1",
+            "",
             "URL_DELLA_CANZONE_2",
             "URL_DELLA_CANZONE_3"
         ];
