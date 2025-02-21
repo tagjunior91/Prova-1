@@ -4,6 +4,17 @@
 
     <!-- Pulsante per avviare la musica -->
     <button onclick="startMusic()">Avvia Musica</button>
+function startMusic() {
+    audio.loop = true;
+    audio.play()
+        .then(() => {
+            console.log("Musica avviata!");
+        })
+        .catch((error) => {
+            console.error("Errore durante l'avvio della musica:", error);
+            alert("Tocca di nuovo il pulsante per avviare la musica.");
+        });
+}
 
     <video width="320" height="240" controls>
         <source src="https://github.com/tagjunior91/Prova-1/blob/main/SnapTik_App_7468275277735529750.mp4" type="video/mp4">
