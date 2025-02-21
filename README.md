@@ -6,15 +6,17 @@
     <button onclick="startMusic()">Avvia Musica</button>
 
     <video width="320" height="240" controls>
-    <video controls>
-        <source src="https://github.com/tagjunior91/Prova-1/blob/main/SnapTik_App_7468275277735529750.mp4" type="video/mp4">
+        <source src="URL_DEL_VIDEO" type="video/mp4">
         Il tuo browser non supporta i video.
     </video>
     <p style="margin-top: 20px;">Scuoti il telefono per cambiare la canzone!</p>
 
     <script>
         // Lista delle canzoni
-        let songs = ["https://github.com/tagjunior91/Prova-1/blob/main/Song2.mp3"];
+        let songs = [
+            "URL_DELLA_CANZONE_1",
+            "URL_DELLA_CANZONE_2",
+            "URL_DELLA_CANZONE_3"
         ];
         let currentSongIndex = 0;
         let audio = new Audio(songs[currentSongIndex]);
