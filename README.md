@@ -80,8 +80,8 @@
     <script>
         let songs = [
             "https://github.com/tagjunior91/Prova-1/blob/main/song3.mp3",
-            "https://tuo-username.github.io/nome-repository/song2.mp3", /* Quella con i cuoricini */
-            "https://tuo-username.github.io/nome-repository/song3.mp3"
+            "https://tagjunior91.github.io/nome-repository/song3.mp3", /* Quella con i cuoricini */
+            "https://github.com/tagjunior91/Prova-1/blob/main/song3.mp3"
         ];
 
         let currentSongIndex = 0;
