@@ -9,7 +9,7 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #fef9c3; /* Giallo paglierino */
-            color: #333;
+            color: #000;
             display: flex;
             flex-direction: column;
             justify-content: center;
