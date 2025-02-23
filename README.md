@@ -1,155 +1,136 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorpresa per Te ❤️</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #fef9c3; /* Giallo paglierino */
-            color: #000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden; /* Nasconde elementi fuori dallo schermo */
-        }
-        h1 {
-            text-align: center;
-            padding: 10px;
-            color: #d35400;
-        }
-        p {
-            text-align: center;
-            font-size: 20px;
-            margin-bottom: 20px;
-            color: #6c5b7b;
-        }
-        video {
-            width: 320px;
-            height: 240px;
-            margin: 20px auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: #e74c3c;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px;
-        }
-        button:hover {
-            background-color: #c0392b;
-        }
-        .heart {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background-color: #e74c3c;
-            clip-path: polygon(50% 0%, 100% 35%, 75% 100%, 50% 75%, 25% 100%, 0% 35%);
-            animation: fall 3s linear infinite;
-        }
-        @keyframes fall {
-            0% {
-                top: -50px;
-                opacity: 1;
-            }
-            100% {
-                top: 100vh;
-                opacity: 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorpresa Speciale</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f9f7f6;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #ff6f61;
+    }
+    p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+    video, audio {
+      margin: 20px 0;
+      width: 80%;
+      max-width: 600px;
+      border: 2px solid #ff6f61;
+      border-radius: 10px;
+    }
+    #hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .heart {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: #ff6f61;
+      clip-path: polygon(50% 0%, 100% 37%, 82% 100%, 50% 82%, 18% 100%, 0% 37%);
+      animation: float 4s linear infinite;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(100%);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Ciao Amore ❤️</h1>
-    <p>Sei il mio tutto e riempi ogni giorno di gioia e amore. 💛</p>
-    <video id="video" controls>
-        <source src="https://github.com/tagjunior91/Prova-1/blob/main/SnapTik_App_7468275277735529750.mp4" type="video/mp4">
-        Il tuo browser non supporta i video.
-    </video>
-    <button onclick="startMusic()">Avvia Musica</button>
+  <h1>Sorpresa per Te</h1>
+  <p>"Un piccolo gesto per ricordarti quanto sei speciale."</p>
 
-    <script>
-        let songs = [
-            "https://github.com/tagjunior91/Prova-1/blob/main/song3.mp3",
-            "https://tagjunior91.github.io/nome-repository/song3.mp3", /* Quella con i cuoricini */
-            "https://github.com/tagjunior91/Prova-1/blob/main/song3.mp3"
-        ];
+  <!-- Video -->
+  <video controls>
+    <source src="./Videounica.mp4" type="video/mp4">
+    Il tuo browser non supporta il video.
+  </video>
 
-        let currentSongIndex = 0;
-        let audio = new Audio(songs[currentSongIndex]);
-        let shakeCount = 0;
+  <!-- Audio Player -->
+  <audio id="audio-player" controls>
+    <source src="./song1.mp3" type="audio/mp3">
+    Il tuo browser non supporta l'audio.
+  </audio>
 
-        function startMusic() {
-            audio.play()
-                .then(() => {
-                    console.log("Musica avviata!");
-                    if (currentSongIndex === 1) {
-                        // Mostra i cuoricini per una canzone specifica
-                        startHearts();
-                    }
-                })
-                .catch((error) => {
-                    console.error("Errore durante l'avvio della musica:", error);
-                });
+  <canvas id="hearts"></canvas>
+
+  <script>
+    const songs = ["./song1.mp3", "./song2.mp3", "./song3.mp3", "./song4.mp3"];
+    const specialSong = "./song2.mp3";
+    const audioPlayer = document.getElementById("audio-player");
+    const heartsCanvas = document.getElementById("hearts");
+    const ctx = heartsCanvas.getContext("2d");
+    let width, height;
+
+    // Resize canvas
+    function resizeCanvas() {
+      width = heartsCanvas.width = window.innerWidth;
+      height = heartsCanvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    // Heart animation
+    function createHeart() {
+      const x = Math.random() * width;
+      const size = Math.random() * 50 + 10;
+      const duration = Math.random() * 2 + 3;
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = `${x}px`;
+      heart.style.width = `${size}px`;
+      heart.style.height = `${size}px`;
+      heart.style.animationDuration = `${duration}s`;
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), duration * 1000);
+    }
+
+    // Detect shake
+    let currentSongIndex = 0;
+    window.addEventListener("devicemotion", (event) => {
+      const { x, y, z } = event.acceleration;
+      const shakeThreshold = 15;
+      if (Math.abs(x) > shakeThreshold || Math.abs(y) > shakeThreshold || Math.abs(z) > shakeThreshold) {
+        currentSongIndex = (currentSongIndex + 1) % songs.length;
+        audioPlayer.src = songs[currentSongIndex];
+        audioPlayer.play();
+
+        if (songs[currentSongIndex] === specialSong) {
+          for (let i = 0; i < 20; i++) {
+            setTimeout(createHeart, i * 200);
+          }
         }
+      }
+    });
 
-        // Funzione per far cadere i cuoricini
-        function startHearts() {
-            setInterval(() => {
-                const heart = document.createElement("div");
-                heart.classList.add("heart");
-                heart.style.left = Math.random() * 100 + "vw";
-                heart.style.animationDuration = Math.random() * 2 + 3 + "s";
-                document.body.appendChild(heart);
-
-                setTimeout(() => {
-                    heart.remove();
-                }, 5000);
-            }, 300);
-        }
-
-        // Funzione per cambiare canzone
-        function changeSong() {
-            currentSongIndex = (currentSongIndex + 1) % songs.length;
-            audio.src = songs[currentSongIndex];
-            audio.play();
-            if (currentSongIndex === 1) {
-                startHearts();
-            }
-        }
-
-        // Shake detection
-        let lastShakeTime = 0;
-
-        window.addEventListener("devicemotion", (event) => {
-            const acceleration = event.accelerationIncludingGravity;
-            const currentTime = new Date().getTime();
-
-            if (
-                Math.abs(acceleration.x) > 15 ||
-                Math.abs(acceleration.y) > 15 ||
-                Math.abs(acceleration.z) > 15
-            ) {
-                if (currentTime - lastShakeTime > 1000) {
-                    lastShakeTime = currentTime;
-                    shakeCount++;
-                    if (shakeCount === 3) {
-                        alert("Ma non ti sei stufata? D'accordo, un'altra ancora 😊");
-                    } else if (shakeCount > 3) {
-                        changeSong();
-                    }
-                }
-            }
-        });
-    </script>
+    // Special message after 3 shakes
+    let shakeCount = 0;
+    audioPlayer.addEventListener("play", () => {
+      shakeCount++;
+      if (shakeCount === 3) {
+        alert("Ancora non ti sei stancata? Va bene, un'altra canzone allora!");
+      }
+    });
+  </script>
 </body>
 </html>
